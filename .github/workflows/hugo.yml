@@ -49,8 +49,11 @@ jobs:
           hugo \
             --minify \
             --baseURL https://krolzik.eu
-      - name: deploy to s3
-        run: hugo deploy --force --maxDeletes -1
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.SCW_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.SCW_SECRET_ACCESS_KEY }}
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server: 91.204.46.31
+          username: hosting182704
+          password: ${{ secrets.ftp_password }}
+          local-dir: ./public/
+          server-dir: /hosting182704.a2e1f.netcup.net/httpdocs/
