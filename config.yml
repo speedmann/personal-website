@@ -5,6 +5,11 @@ languageCode: "en-us"
 title: "Sebastian Krolzik, System Architect"
 theme: hugo-profile
 
+deployment:
+  targets:
+    name: website-sk
+    URL: "s3://website-sk?endpoint=https://s3.nl-ams.scw.cloud&region=nl-ams"
+
 Paginate: 3
 
 markup:
